@@ -9,6 +9,10 @@ mod p83_remove_duplicates_from_sorted_array;
 
 mod p35_search_insert_position;
 
+mod p342_power_of_four;
 mod p58_length_of_last_word;
 mod p66_plus_one;
 mod p67_add_binary;
+mod p69_sqrtx;
+mod p70_climbing_stairs;
+mod p83_remove_dups_sorted;
