@@ -2,13 +2,14 @@
 // You must write an algorithm with O(log n) runtime complexity.
 
 // Constraints:
-// 1 <= nums.length <= 104
-// -104 <= nums[i] <= 104
+// 1 <= nums.length <= 10^4
+// -10^4 <= nums[i] <= 10^4
 // nums contains distinct values sorted in ascending order.
-// -104 <= target <= 104
+// -10^4 <= target <= 10^4
+
+use std::cmp::Ordering;
 
 pub fn search_insert(nums: Vec<i32>, target: i32) -> i32 {
-    //clear empty, and GT/LT Arry Size:
     if nums.len() == 0 {
         return 0;
     } else if target > nums[nums.len() - 1] {
@@ -16,29 +17,24 @@ pub fn search_insert(nums: Vec<i32>, target: i32) -> i32 {
     } else if target < nums[0] {
         return 0;
     }
-    let mut left = 0;
-    let mut right = nums.len() - 1;
+    let mut low: i32 = 0;
+    let mut high: i32 = (nums.len() - 1) as i32;
     loop {
-        let mid = (left + right) / 2;
-        let last_entry = right - left == 1;
-        // println!("L: {left}, R: {right}, Mid: {mid}");
-        match target.cmp(&nums[mid]) {
-            std::cmp::Ordering::Equal => {
-                // println!("t: {target} == {:?}", nums[mid]);
+        let mid = (low + high) / 2;
+        match &target.cmp(&nums[mid as usize]) {
+            Ordering::Equal => {
                 return mid as i32;
             }
-            std::cmp::Ordering::Less => {
-                // println!("t: {target} < {:?}", nums[mid]);
-                right = mid;
-                if last_entry {
-                    return mid as i32;
+            Ordering::Greater => {
+                low = mid + 1;
+                if high <= low {
+                    return high as i32;
                 }
             }
-            std::cmp::Ordering::Greater => {
-                // println!("t: {target} > {:?}", nums[mid]);
-                left = mid;
-                if last_entry {
-                    return mid as i32 + 1;
+            Ordering::Less => {
+                high = mid;
+                if high <= low {
+                    return low as i32;
                 }
             }
         }
