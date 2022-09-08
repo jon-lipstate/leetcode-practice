@@ -49,10 +49,10 @@ pub fn remove_element(nums: &mut Vec<i32>, val: i32) -> i32 {
     }
     let mut ok = 0;
     for idx in 0..nums.len() {
-        println!(
-            "i: {idx}, o: {ok}, n[o]: {} < n[i]: {}, ",
-            nums[idx], nums[ok]
-        );
+        // println!(
+        //     "i: {idx}, o: {ok}, n[o]: {} < n[i]: {}, ",
+        //     nums[idx], nums[ok]
+        // );
         if nums[idx] != val {
             println!("!=: {idx}, o: {ok}");
             let tmp = nums[ok];
@@ -60,7 +60,7 @@ pub fn remove_element(nums: &mut Vec<i32>, val: i32) -> i32 {
             nums[idx] = tmp;
             ok += 1;
         } else {
-            println!("== i: {idx}, o: {ok}");
+            // println!("== i: {idx}, o: {ok}");
         }
     }
     println!("OK: {ok}");
