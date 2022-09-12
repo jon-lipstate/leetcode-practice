@@ -1,0 +1,1 @@
+p441 arranging coins - hint: area = n*(n+1)/2 ; triangle + next row
