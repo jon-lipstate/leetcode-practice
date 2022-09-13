@@ -16,3 +16,13 @@ mod p278_first_bad_version;
 mod p34_find_first_last_position_element_array;
 
 mod p441_arranging_coins;
+
+mod p1539_kth_missing_positive_number;
+
+mod p167_twosum_ii;
+
+mod p1608_special_array;
+
+mod p1351_count_neg_numbers;
+
+mod p74_search_2d_matrix;
