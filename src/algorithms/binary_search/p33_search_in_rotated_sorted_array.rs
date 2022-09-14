@@ -12,12 +12,19 @@
 pub fn search(nums: Vec<i32>, target: i32) -> i32 {
     unimplemented!()
 }
-// Example 1:
-// Input: nums = [4,5,6,7,0,1,2], target = 0
-// Output: 4
-// Example 2:
-// Input: nums = [4,5,6,7,0,1,2], target = 3
-// Output: -1
-// Example 3:
-// Input: nums = [1], target = 0
-// Output: -1
+
+#[test]
+fn t1() {
+    let nums = [4, 5, 6, 7, 0, 1, 2].to_vec();
+    assert_eq!(4, search(nums, 0));
+}
+#[test]
+fn t2() {
+    let nums = [4, 5, 6, 7, 0, 1, 2].to_vec();
+    assert_eq!(-1, search(nums, 3));
+}
+#[test]
+fn t3() {
+    let nums = [1].to_vec();
+    assert_eq!(-1, search(nums, 0));
+}

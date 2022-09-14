@@ -2,13 +2,17 @@
 
 // Constraints:
 // 0 <= c <= 2^31 - 1
+
+//hint: int^2 in rng [0,c−a^2]
 pub fn judge_square_sum(c: i32) -> bool {
     unimplemented!()
 }
-// Example 1:
-// Input: c = 5
-// Output: true
-// Explanation: 1 * 1 + 2 * 2 = 5
-// Example 2:
-// Input: c = 3
-// Output: false
+
+#[test]
+fn t1() {
+    assert_eq!(true, judge_square_sum(5));
+}
+#[test]
+fn t2() {
+    assert_eq!(false, judge_square_sum(3));
+}

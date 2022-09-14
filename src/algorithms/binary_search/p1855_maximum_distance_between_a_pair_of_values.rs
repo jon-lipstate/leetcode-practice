@@ -11,18 +11,28 @@
 pub fn max_distance(nums1: Vec<i32>, nums2: Vec<i32>) -> i32 {
     unimplemented!()
 }
-// Example 1:
-// Input: nums1 = [55,30,5,4,2], nums2 = [100,20,10,10,5]
-// Output: 2
-// Explanation: The valid pairs are (0,0), (2,2), (2,3), (2,4), (3,3), (3,4), and (4,4).
-// The maximum distance is 2 with pair (2,4).
-// Example 2:
-// Input: nums1 = [2,2,2], nums2 = [10,10,1]
-// Output: 1
-// Explanation: The valid pairs are (0,0), (0,1), and (1,1).
-// The maximum distance is 1 with pair (0,1).
-// Example 3:
-// Input: nums1 = [30,29,19,5], nums2 = [25,25,25,25,25]
-// Output: 2
-// Explanation: The valid pairs are (2,2), (2,3), (2,4), (3,3), and (3,4).
-// The maximum distance is 2 with pair (2,4).
+
+#[test]
+fn t1() {
+    // Explanation: The valid pairs are (0,0), (2,2), (2,3), (2,4), (3,3), (3,4), and (4,4).
+    // The maximum distance is 2 with pair (2,4).
+    let nums1 = [55, 30, 5, 4, 2].to_vec();
+    let nums2 = [100, 20, 10, 10, 5].to_vec();
+    assert_eq!(2, max_distance(nums1, nums2));
+}
+#[test]
+fn t2() {
+    // Explanation: The valid pairs are (0,0), (0,1), and (1,1).
+    // The maximum distance is 1 with pair (0,1).
+    let nums1 = [2, 2, 2].to_vec();
+    let nums2 = [10, 10, 1].to_vec();
+    assert_eq!(1, max_distance(nums1, nums2));
+}
+#[test]
+fn t3() {
+    // Explanation: The valid pairs are (2,2), (2,3), (2,4), (3,3), and (3,4).
+    // The maximum distance is 2 with pair (2,4).
+    let nums1 = [30, 29, 19, 5].to_vec();
+    let nums2 = [25, 25, 25, 25, 25].to_vec();
+    assert_eq!(2, max_distance(nums1, nums2));
+}
