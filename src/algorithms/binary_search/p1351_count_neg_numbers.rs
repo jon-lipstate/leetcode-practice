@@ -7,7 +7,22 @@
 // 1 <= m, n <= 100
 // -100 <= grid[i][j] <= 100
 pub fn count_negatives(grid: Vec<Vec<i32>>) -> i32 {
-    unimplemented!()
+    let mut neg_vals = 0;
+    for row in grid {
+        let mut l = 0;
+        let mut h = row.len();
+        let mut m;
+        while l < h {
+            m = l + (h - l) / 2;
+            if row[m] < 0 {
+                h = m;
+            } else {
+                l = m + 1;
+            }
+        }
+        neg_vals+=row.len() - h;
+    }
+    neg_vals as i32
 }
 
 #[test]

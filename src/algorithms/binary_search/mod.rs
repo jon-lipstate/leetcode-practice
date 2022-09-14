@@ -24,5 +24,15 @@ mod p167_twosum_ii;
 mod p1608_special_array;
 
 mod p1351_count_neg_numbers;
-
 mod p74_search_2d_matrix;
+
+mod p1337_k_weakest_rows;
+mod p1346_check_if_n_and_its_double_exist;
+
+mod p350_intersection_of_two_arrays_ii;
+mod p633_sum_of_square_numbers;
+
+mod p1855_maximum_distance_between_a_pair_of_values;
+mod p33_search_in_rotated_sorted_array;
+
+mod p153_find_min_in_rotated_sorted_array;
