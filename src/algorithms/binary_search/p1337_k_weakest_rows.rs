@@ -14,6 +14,40 @@
 // matrix[i][j] is either 0 or 1.
 
 pub fn k_weakest_rows(mat: Vec<Vec<i32>>, k: i32) -> Vec<i32> {
+    //n.log(m)
+    let rows: Vec<usize> = mat.iter().map(|arr| count_ones(&arr)).collect();
+    println!("r: {:?}", rows);
+    //should use priority queue but havent learned yet
+    let mut v = Vec::new();
+    for i in 0..rows.len() {
+        v.push((i, rows[i]));
+    }
+    v.sort_by(|i, j| i.1.cmp(&j.1));
+    println!("v: {:?}", v);
+
+    v.into_iter().take(k as usize).map(|i| i.0 as i32).collect()
+}
+///Count of ones
+fn count_ones(mat: &Vec<i32>) -> usize {
+    if mat[0] == 0 {
+        return 0;
+    } else if mat[mat.len() - 1] == 1 {
+        return mat.len();
+    }
+    let mut l = 0;
+    let mut r = mat.len() - 1;
+    while l < r {
+        let m = l + (r - l) / 2;
+        let v = mat[m];
+        let v1 = mat[m + 1];
+        if v == 1 && v1 == 0 {
+            return m + 1;
+        } else if v == 0 {
+            r = m;
+        } else {
+            l = m + 1;
+        }
+    }
     unreachable!()
 }
 
@@ -54,4 +88,11 @@ fn t2() {
     // - Row 3: 1
     // The rows ordered from weakest to strongest are [0,2,3,1].
     assert_eq!(vec![0, 2], k_weakest_rows(mat, k))
+}
+#[test]
+fn t3() {
+    let mat = vec![vec![1, 0], vec![0, 0], vec![1, 0]];
+    let k = 2;
+
+    assert_eq!(vec![1, 0], k_weakest_rows(mat, k))
 }
